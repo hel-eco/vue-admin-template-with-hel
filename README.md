@@ -36,6 +36,13 @@ npm publish
 
 
 ## 使用方使用
+入口文件先绑定vue运行时
+```ts
+import { bindVueRuntime } from 'hel-micro';
+import Vue from 'vue';
+bindVueRuntime({Vue});
+```
+
 
 ### 懒加载
 <Hamburger />
