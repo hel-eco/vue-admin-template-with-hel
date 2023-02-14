@@ -20,7 +20,6 @@ npm i hel-lib-proxy hel-dev-utils typescript@4.8 rollup@2 rollup-plugin-typescri
 
 ### 改造 `main.js`
 引入 `hel-lib-proxy` 包，做分流控制
-
 ### 构建层引入模块描述文件
 根目录引入 `subApp.js` 文件，对接 `hel-dev-utils`，供构建工具的`vue.config.js`文件使用，主要改动有
 - `vue.config.js`里修改 publicPath、distDir、output.jsonpFunction、externals
