@@ -43,7 +43,6 @@ import Vue from 'vue';
 bindVueRuntime({Vue});
 ```
 
-
 ### 懒加载
 <Hamburger />
 
