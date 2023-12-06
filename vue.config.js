@@ -2,7 +2,7 @@
 const path = require('path')
 // const webpack = require('webpack')
 const defaultSettings = require('./src/settings.js')
-const subApp = require('./subApp')
+const appInfo = require('./appInfo')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -17,8 +17,8 @@ const name = defaultSettings.title || 'vue Admin Template' // page title
 // port = 9528 npm run dev OR npm run dev --port = 9528
 const port = process.env.port || process.env.npm_config_port || 9528 // dev port
 
-console.log('subApp.getPublicPathOrUrl')
-console.log(subApp.getPublicPathOrUrl('http://localhost:7001'))
+console.log('appInfo.getPublicPathOrUrl')
+console.log(appInfo.getPublicPathOrUrl('http://localhost:7001'))
 
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
@@ -33,9 +33,9 @@ module.exports = {
   // 此处传入的url值仅为了方便另一个项目可以基于当前模块的wed-dev-server调试当前模块代码，端口号对齐 npm run start 里的 PORT
   // 它不会影响流水线的 publicUrl 值，因为 hel-dev-utils 内部发现设置有 process.env.HEL_APP_HOME_PAGE 时或 设置了 npmCdnType 时，
   // 会优先采用 HEL_APP_HOME_PAGE 值或 npmCdnType 对应的 cdn 前缀值作为 publicUrl，覆盖掉这里的默认值
-  publicPath: subApp.getPublicPathOrUrl('http://localhost:7001'),
+  publicPath: appInfo.getPublicPathOrUrl('http://localhost:7001'),
   // outputDir: 'dist',
-  outputDir: subApp.distDir,
+  outputDir: appInfo.distDir,
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
@@ -59,9 +59,9 @@ module.exports = {
     // it can be accessed in index.html to inject the correct title.
     name: name,
     output: {
-      jsonpFunction: subApp.jsonpFnName
+      jsonpFunction: appInfo.jsonpFnName
     },
-    externals: subApp.externals,
+    externals: appInfo.externals,
     resolve: {
       alias: {
         '@': resolve('src')
